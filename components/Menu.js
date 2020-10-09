@@ -10,7 +10,7 @@ let menuItems = [
 ];
 
 //
-//   Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
+//   [x]Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 
 //   <div class="menu">
 //     <ul>
@@ -18,7 +18,7 @@ let menuItems = [
 //     </ul>
 //   </div>
 
-// Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array.
+// [x]Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array.
 // Add those items to the <ul>
 //
 
@@ -34,45 +34,37 @@ let menuItems = [
 // Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 //
 //new code attempt
+//
+//create the  'home'
+
+const menuClick = document.querySelector(".header");
+console.log(menuClick);
+//function to add menuItems to the menu div.
 const menuMaker = (arr) => {
-  //create elements
   const menuDiv = document.createElement("div");
+  menuDiv.classList.add("menu");
+//
+
   const menuUl = document.createElement("ul");
-  menuDiv.appendChild("mUl");
   //itterate through array for menu items, appending 
   arr.forEach((ele)=>{
     const menuLi = document.createElement("li");
     menuLi.textContent = ele;
     menuUl.appendChild(menuLi);
   })
+  //append initial UL
+  menuDiv.appendChild(menuUl);
+    //create event to open the menu
+ 
+  menuClick.addEventListener("click", (event) => {
+    // console.log("I clicked it!", event.target);
+    menuDiv.classList.toggle("menu--open");
+    // console.log("Hi");
+  });
+  //return
+  
   return menuDiv;
-
 };
-const menuClick = document.querySelector(".menu-open")
 
-//OLD CODE
-//OLD CODE
-//OLD CODE
-//OLD CODE
-//OLD CODE
-//OLD CODE
-//Select the 'omnipitent' element :)
-// const menuSelect = document.querySelector(".menu");
-// console.log(menuSelect);
-
-// //   The 'menuMaker' takes an array of menu items as its only argument.
-// const menuMaker = (menuItems) => {
-//   //create elements
-//   const menuDiv = document.createElement("div");
-//   const menuUl = document.createElement("ul");
-//   //add class lists
-//   menuDiv.classList.add("menu");
-//   //itterate for all li
-//   menuItems.forEach((menuSelect) => {
-//     const menuLi = document.createElement("li");
-//     menuUl.appendChild("li");
-//     menuDiv.appendChild("ul");
-//   });
-
-//   return menuDiv;
-// };
+//call the function
+menuClick.appendChild(menuMaker(menuItems));

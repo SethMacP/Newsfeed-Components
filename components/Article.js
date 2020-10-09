@@ -100,7 +100,7 @@ data.push({
 
 //Grabbing all articles
 const articles = document.querySelector(".articles");
-console.log(articles);
+// console.log(articles);
 //Function Start
 const articleMaker = (
   title,
